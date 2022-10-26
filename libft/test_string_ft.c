@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include <bsd/string.h>
 #include "libft.h"
 
@@ -181,4 +182,50 @@ void	test_strlcat(void)
 		printf("strlcat vs ft_strlcat: OK!\n");
 	else
 		printf("Found %i errors in ft_strlcat\n", errors);
+}
+
+void	test_toupper(void)
+{
+	char	test[] = "abcEfR2zS";
+	size_t	i;
+	int		errors;
+
+	errors = 0;
+	i = 0;
+	while (i < strlen(test))
+	{
+		if (toupper(test[i]) != ft_toupper(test[i]))
+		{
+			printf("toupper vs ft_toupper. Error on: %c\n", test[i]);
+			errors++;
+		}
+		i++;
+	}
+	if (!errors)
+		printf("toupper vs ft_toupper: OK!\n");
+	else
+		printf("Found %i errors in ft_toupper\n", errors);
+}
+
+void	test_tolower(void)
+{
+	char	test[] = "abcEfR2zS";
+	size_t	i;
+	int		errors;
+
+	errors = 0;
+	i = 0;
+	while (i < strlen(test))
+	{
+		if (tolower(test[i]) != ft_tolower(test[i]))
+		{
+			printf("tolower vs ft_tolower. Error on: %c\n", test[i]);
+			errors++;
+		}
+		i++;
+	}
+	if (!errors)
+		printf("tolower vs ft_tolower: OK!\n");
+	else
+		printf("Found %i errors in ft_tolower\n", errors);
 }
