@@ -1,7 +1,7 @@
 NAME =	testing
 CC =	gcc
 CFLAGS=	-g -Wall -Werror -Wextra
-DEP =	libft.h libft.a
+DEP =	-lbsd libft.a
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $^

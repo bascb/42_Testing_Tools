@@ -9,6 +9,8 @@ void	test_memset(void);
 void	test_memcpy(void);
 void	test_memmove(void);
 void	test_calloc(void);
+void	test_strdup(void);
+void	test_strlcpy(void);
 
 void	test_is(int (*lib)(int), int (*ft)(int), char *ft_name)
 {
@@ -49,5 +51,7 @@ int	main(void)
 	test_memcpy();
 	test_memmove();
 	test_calloc();
+	test_strdup();
+	test_strlcpy();
 	return (0);
 }
