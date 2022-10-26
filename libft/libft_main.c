@@ -11,6 +11,7 @@ void	test_memmove(void);
 void	test_calloc(void);
 void	test_strdup(void);
 void	test_strlcpy(void);
+void	test_strlcat(void);
 
 void	test_is(int (*lib)(int), int (*ft)(int), char *ft_name)
 {
@@ -53,5 +54,6 @@ int	main(void)
 	test_calloc();
 	test_strdup();
 	test_strlcpy();
+	test_strlcat();
 	return (0);
 }

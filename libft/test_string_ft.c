@@ -123,3 +123,62 @@ void	test_strlcpy(void)
 	else
 		printf("Found %i errors in ft_strlcpy\n", errors);
 }
+
+int	sub_test_strlcat(char *src, size_t size)
+{
+	int		errors;
+	size_t	lib_len;
+	size_t	ft_len;
+	char	l_buffer[size];
+	char	f_buffer[size];
+
+	memset(l_buffer, 0, size);
+	memset(f_buffer, 0, size);
+	
+	if (size - 3 > 0)
+	{
+		memset(l_buffer, 49, size - 3);
+		memset(f_buffer, 49, size - 3);
+	}
+	errors = 0;
+	lib_len = strlcat(l_buffer, src, size);
+	ft_len = ft_strlcat(f_buffer, src, size);
+	if (lib_len != ft_len)
+	{
+		printf("strlcat vs ft_strlcat: Error! Returned size don't match\n");
+		printf("	size: %lu\n", size);
+		printf("	src_len: %lu\n", ft_strlen(src));
+		printf("	strlcat: %lu\n", lib_len);
+		printf("	ft_strlcat: %lu\n", ft_len);
+		printf("	string: %s\n", src);
+		errors++;
+	}
+	if (strcmp(l_buffer, f_buffer))
+	{
+		printf("strlcat vs ft_strlcat: Error! Copy don't match\n");
+		printf("	size: %lu\n", size);
+		printf("	src_len: %lu\n", ft_strlen(src));
+		printf("	strlcat: %s\n", l_buffer);
+		printf("	ft_strlcat: %s\n", f_buffer);
+		printf("	string: %s\n", src);
+		errors++;
+	}
+	return (errors);
+}
+
+void	test_strlcat(void)
+{
+	char	empty[] = "";
+	char	great[] = "Thank you 42!";
+	char	weird[5] = {'a', 49, -4, 'b', '\0'};
+	int		errors;
+
+	errors = 0;
+	errors += sub_test_strlcat(empty, 10);
+	errors += sub_test_strlcat(weird, 3);
+	errors += sub_test_strlcat(great, 3);
+	if (!errors)
+		printf("strlcat vs ft_strlcat: OK!\n");
+	else
+		printf("Found %i errors in ft_strlcat\n", errors);
+}
