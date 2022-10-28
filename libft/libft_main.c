@@ -14,6 +14,13 @@ void	test_strlcpy(void);
 void	test_strlcat(void);
 void	test_toupper(void);
 void	test_tolower(void);
+void	test_strchr(void);
+void	test_strrchr(void);
+void	test_strncmp(void);
+void	test_memchr(void);
+void	test_memcmp(void);
+void	test_strnstr(void);
+void	test_atoi(void);
 
 void	test_is(int (*lib)(int), int (*ft)(int), char *ft_name)
 {
@@ -59,5 +66,12 @@ int	main(void)
 	test_strlcat();
 	test_toupper();
 	test_tolower();
+	test_strchr();
+	test_strrchr();
+	test_strncmp();
+	test_memchr();
+	test_memcmp();
+	test_strnstr();
+	test_atoi();
 	return (0);
 }
