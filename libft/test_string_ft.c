@@ -13,7 +13,7 @@ void	print_strlen(char *str, char *label)
 	r_lib = strlen(str);
 	r_ft = ft_strlen(str);
 	diff = r_lib - r_ft;
-	printf("%s: lib: %li ft: %li diff: %li ", label, r_lib, r_ft, diff);
+	printf("%s: lib: %zi ft: %zi diff: %zi ", label, r_lib, r_ft, diff);
 	if (!diff)
 		printf("OK\n");
 	else
@@ -93,8 +93,8 @@ int	sub_test_strlcpy(char *src, size_t size)
 	if (lib_len != ft_len)
 	{
 		printf("strlcpy vs ft_strlcpy: Error! Returned size don't match\n");
-		printf("	strlcpy: %lu\n", lib_len);
-		printf("	ft_strlcpy: %lu\n", ft_len);
+		printf("	strlcpy: %zu\n", lib_len);
+		printf("	ft_strlcpy: %zu\n", ft_len);
 		printf("	string: %s\n", src);
 		errors++;
 	}
@@ -147,18 +147,18 @@ int	sub_test_strlcat(char *src, size_t size)
 	if (lib_len != ft_len)
 	{
 		printf("strlcat vs ft_strlcat: Error! Returned size don't match\n");
-		printf("	size: %lu\n", size);
-		printf("	src_len: %lu\n", ft_strlen(src));
-		printf("	strlcat: %lu\n", lib_len);
-		printf("	ft_strlcat: %lu\n", ft_len);
+		printf("	size: %zu\n", size);
+		printf("	src_len: %zu\n", ft_strlen(src));
+		printf("	strlcat: %zu\n", lib_len);
+		printf("	ft_strlcat: %zu\n", ft_len);
 		printf("	string: %s\n", src);
 		errors++;
 	}
 	if (strcmp(l_buffer, f_buffer))
 	{
 		printf("strlcat vs ft_strlcat: Error! Copy don't match\n");
-		printf("	size: %lu\n", size);
-		printf("	src_len: %lu\n", ft_strlen(src));
+		printf("	size: %zu\n", size);
+		printf("	src_len: %zu\n", ft_strlen(src));
 		printf("	strlcat: %s\n", l_buffer);
 		printf("	ft_strlcat: %s\n", f_buffer);
 		printf("	string: %s\n", src);
@@ -346,7 +346,7 @@ int	check_strncmp(char *s1, char *s2, size_t n)
 		printf("	ft_strncmp: %i\n", f_cmp);
 		printf("	string1: %s\n", s1);
 		printf("	string2: %s\n", s2);
-		printf("	n: %lu\n", n);
+		printf("	n: %zu\n", n);
 		errors++;
 	}
 	if ((l_cmp > 0 && f_cmp <= 0) || (l_cmp <= 0 && f_cmp >0))
@@ -356,7 +356,7 @@ int	check_strncmp(char *s1, char *s2, size_t n)
 		printf("	ft_strncmp: %i\n", f_cmp);
 		printf("	string1: %s\n", s1);
 		printf("	string2: %s\n", s2);
-		printf("	n: %lu\n", n);
+		printf("	n: %zu\n", n);
 		errors++;
 	}
 	return (errors);
@@ -417,7 +417,7 @@ int	check_strnstr(char *s1, char *s2, size_t n)
 		printf("	ft_strnstr: %p\n", ft);
 		printf("	s1: %s\n", s1);
 		printf("	s2: %s\n", s2);
-		printf("	n: %lu\n", n);
+		printf("	n: %zu\n", n);
 		errors++;
 	}
 	return (errors);
@@ -452,15 +452,15 @@ int	check_atoi(char *str)
 	errors = 0;
 	lib = atoi(str);
 	ft = 0;
-//	ft = ft_atoi(str);
-//	if (lib != ft)
-//	{
+	ft = ft_atoi(str);
+	if (lib != ft)
+	{
 		printf("atoi vs ft_atoi: Error! Numbers don't match\n");
 		printf("	atoi: %i\n", lib);
 		printf("	ft_atoi: %i\n", ft);
 		printf("	number string: %s\n", str);
 		errors++;
-//	}
+	}
 	return (errors);
 }
 
@@ -470,7 +470,7 @@ void	test_atoi(void)
 
 	errors = 0;
 	errors += check_atoi("123");
-/*	errors += check_atoi("321");
+	errors += check_atoi("321");
 	errors += check_atoi("	321");
 	errors += check_atoi("	+321");
 	errors += check_atoi("	-321");
@@ -480,8 +480,11 @@ void	test_atoi(void)
 	errors += check_atoi("2147483647");
 	errors += check_atoi("-2147483648");
 	errors += check_atoi("2147483648");
-	errors += check_atoi("-2147483648");
-	errors += check_atoi(""); */
+	errors += check_atoi("2147483650");
+	errors += check_atoi("-2147483649");
+	errors += check_atoi("-2147483650");
+	errors += check_atoi("\e475");
+	errors += check_atoi("");
 	if (!errors)
 		printf("atoi vs ft_atoi: OK!\n");
 	else

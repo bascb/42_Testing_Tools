@@ -85,7 +85,7 @@ void	test_memmove(void)
 
 	memset(buffer_a, 0, 20);
 	memset(buffer_b, 0, 20);
-	buffer_s = &buffer_a[11];
+	buffer_s = &buffer_a[10];
 	memset(buffer_s, 0, 10);
 	i = 0;
 	while (i < 10)
@@ -94,7 +94,7 @@ void	test_memmove(void)
 		i++;
 	}
 	memmove(buffer_a, buffer_s, 10);
-	buffer_s = &buffer_b[11];
+	buffer_s = &buffer_b[10];
 	memset(buffer_s, 0, 10);
 	i = 0;
 	while (i < 10)
@@ -177,7 +177,7 @@ int	check_memchr(char *buf, int c, size_t n)
 		printf("	ft_memchr: %p\n", ft);
 		printf("	string: %s\n", buf);
 		printf("	char to find: %c\n", c);
-		printf("	n: %lu\n", n);
+		printf("	n: %zu\n", n);
 		errors++;
 	}
 	if (!lib || !ft)
@@ -188,7 +188,7 @@ int	check_memchr(char *buf, int c, size_t n)
 		printf("	memchr: %c\n", *(char *) lib);
 		printf("	ft_memchr: %c\n", *(char *) ft);
 		printf("	string: %s\n", buf);
-		printf("	n: %lu\n", n);
+		printf("	n: %zu\n", n);
 		errors++;
 	}
 	return (errors);
@@ -229,7 +229,7 @@ int	check_memcmp(char *s1, char *s2, size_t n)
 		printf("	ft_memcmp: %i\n", f_cmp);
 		printf("	string1: %s\n", s1);
 		printf("	string2: %s\n", s2);
-		printf("	n: %lu\n", n);
+		printf("	n: %zu\n", n);
 		errors++;
 	}
 	if ((l_cmp > 0 && f_cmp <= 0) || (l_cmp <= 0 && f_cmp >0))
@@ -239,7 +239,7 @@ int	check_memcmp(char *s1, char *s2, size_t n)
 		printf("	ft_memcmp: %i\n", f_cmp);
 		printf("	string1: %s\n", s1);
 		printf("	string2: %s\n", s2);
-		printf("	n: %lu\n", n);
+		printf("	n: %zu\n", n);
 		errors++;
 	}
 	return (errors);
