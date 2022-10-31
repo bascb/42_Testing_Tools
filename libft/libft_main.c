@@ -21,6 +21,13 @@ void	test_memchr(void);
 void	test_memcmp(void);
 void	test_strnstr(void);
 void	test_atoi(void);
+void	test_substr(void);
+void	test_strjoin(void);
+void	test_strtrim(void);
+void	test_split(void);
+void	test_itoa(void);
+void	test_strmapi(void);
+void	test_striteri(void);
 
 void	test_is(int (*lib)(int), int (*ft)(int), char *ft_name)
 {
@@ -50,6 +57,7 @@ void	test_is(int (*lib)(int), int (*ft)(int), char *ft_name)
 
 int	main(void)
 {
+	printf("Testing part 1 functions:\n");
 	test_is(isalpha, ft_isalpha, "isalpha");
 	test_is(isdigit, ft_isdigit, "isdigit");
 	test_is(isalnum, ft_isalnum, "isalnum");
@@ -74,5 +82,13 @@ int	main(void)
 	test_memcmp();
 	test_strnstr();
 	test_atoi();
+	printf("Testing part 2 functions:\n");
+	test_substr();
+	test_strjoin();
+	test_strtrim();
+//	test_split();
+	test_itoa();
+	test_strmapi();
+	test_striteri();
 	return (0);
 }
