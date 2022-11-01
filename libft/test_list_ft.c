@@ -70,6 +70,35 @@ void	test_lstadd_front(t_list **lst, t_list *node)
 		printf("Found %i errors in ft_lstadd_front\n", errors);
 }
 
+void	test_lstadd_back(t_list **lst, t_list *node)
+{
+	int		num_list[4] = {1, 2, 3, 4};
+	int		errors;
+	int		i;
+	t_list	*aux;
+
+	errors = 0;
+	ft_lstadd_back(lst, node);
+	aux = *lst;
+	i = 0;
+	while (aux)
+	{
+		if (*(int *) aux->content != num_list[i])
+		{
+			printf("lstadd_back: Error! List with wrong order\n");
+			printf("	Expected number: %i\n", num_list[i]);
+			printf("	Node content number: %i\n", *(int *) aux->content);
+			errors++;
+		}
+		i++;
+		aux = aux->next;
+	};
+	if (!errors)
+		printf("ft_lstadd_back: OK!\n");
+	else
+		printf("Found %i errors in ft_lstadd_back\n", errors);
+}
+
 void	test_lstsize(t_list *lst, int expected)
 {
 	int	errors;
@@ -121,25 +150,31 @@ void	all_list_tests(void)
 	t_list	*node_1;
 	t_list	*node_2;
 	t_list	*node_3;
+	t_list	*node_4;
 	int		number_1;
 	int		number_2;
 	int		number_3;
+	int		number_4;
 
 	lst = malloc(sizeof(t_list *));
 	*lst = NULL;
 	number_1 = 1;
 	number_2 = 2;
 	number_3 = 3;
+	number_4 = 4;
 	node_1 = test_lstnew(&number_1);
 	node_2 = ft_lstnew(&number_2);
 	node_3 = ft_lstnew(&number_3);
-	ft_lstadd_front(lst, node_3);
+	node_4 = ft_lstnew(&number_4);
+	ft_lstadd_back(lst, node_3);
 	ft_lstadd_front(lst, node_2);
 	test_lstadd_front(lst, node_1);
-	test_lstsize(*lst, 3);
-	test_lstlast(*lst, 3);
+	test_lstadd_back(lst, node_4);
+	test_lstsize(*lst, 4);
+	test_lstlast(*lst, 4);
 	free(lst);
 	free(node_1);
 	free(node_2);
 	free(node_3);
+	free(node_4);
 }
