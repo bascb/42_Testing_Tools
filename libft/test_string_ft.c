@@ -530,7 +530,7 @@ int	check_substr(char *str, unsigned int start, size_t len)
 		printf("ft_substr: Error! Comparisation do not match\n");
 		printf("	Comparisation diff: %zu\n", diff);
 		printf("	Original str: %s\n", str);
-		printf("	Original substr: %.*s\n", len, &str[start]);
+		printf("	Original substr: %.*s\n", (int) len, &str[start]);
 		printf("	New str: %s\n", new);
 		printf("	start index: %u : len: %zu\n", start, len);
 		errors++;
