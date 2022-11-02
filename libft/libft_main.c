@@ -64,7 +64,6 @@ int	main(void)
 	test_is(isalnum, ft_isalnum, "isalnum");
 	test_is(isascii, ft_isascii, "isascii");
 	test_is(isprint, ft_isprint, "isprint");
-	test_is(isspace, ft_isspace, "isspace");
 	test_strlen();
 	test_bzero();
 	test_memset();
