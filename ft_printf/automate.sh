@@ -9,4 +9,4 @@ cp "${PATH_PRINTF}"/libftprintf.h libftprintf.h
 cp "${PATH_PRINTF}"/libft.h libft.h
 make fclean
 make all
-./testing > test.txt
+./testing
