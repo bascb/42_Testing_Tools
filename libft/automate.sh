@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # Change path to libft
-PATH_LIBFT=~/projects/Libft
+PATH_LIBFT=~/Desenvolvimento/42/projects/Libft
 
 make -C "${PATH_LIBFT}" fclean bonus
 cp "${PATH_LIBFT}"/libft.a libft.a

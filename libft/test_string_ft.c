@@ -821,3 +821,39 @@ void	test_striteri(void)
 	else
 		printf("Found %i errors in ft_striteri\n", errors);
 }
+
+int	check_strcntchr(char *str, int c, int expected)
+{
+	int	errors;
+	int	count;
+
+	errors = 0;
+	count = ft_strcntchr(str, c);
+	if (count != expected)
+	{
+		printf("ft_strcntchr: Error count don't match expected value!\n");
+		printf("	Expected: %i\n", expected);
+		printf("	Returned: %i\n", count);
+		errors++;
+	}
+	return (errors);
+}
+
+void	test_strcntchr(void)
+{
+	int	errors;
+
+	errors = 0;
+	errors += check_strcntchr("bcdef", 'a', 0);
+	errors += check_strcntchr("abcdef", 'a', 1);
+	errors += check_strcntchr("bcdefa", 'a', 1);
+	errors += check_strcntchr("abcdefa", 'a', 2);
+	errors += check_strcntchr("abcadefa", 'a', 3);
+	errors += check_strcntchr("abcaadefa", 'a', 4);
+	errors += check_strcntchr("aaaaaa", 'a', 6);
+	errors += check_strcntchr("aaabaaa", 'a', 6);
+	if (!errors)
+		printf("ft_strcntchr: OK!\n");
+	else
+		printf("Found %i errors in ft_strcntchr\n", errors);
+}

@@ -29,6 +29,7 @@ void	test_itoa(void);
 void	test_strmapi(void);
 void	test_striteri(void);
 void	all_list_tests(void);
+void	test_strcntchr(void);
 
 void	test_is(int (*lib)(int), int (*ft)(int), char *ft_name)
 {
@@ -92,5 +93,7 @@ int	main(void)
 	test_striteri();
 	printf("Testing bonus functions:\n");
 	all_list_tests();
+	printf("Testing extra functions:\n");
+	test_strcntchr();
 	return (0);
 }

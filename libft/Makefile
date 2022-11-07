@@ -18,5 +18,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f libft.a
+	rm -f libft.h
 
 re: fclean all
