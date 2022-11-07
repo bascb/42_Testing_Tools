@@ -834,6 +834,8 @@ int	check_strcntchr(char *str, int c, int expected)
 		printf("ft_strcntchr: Error count don't match expected value!\n");
 		printf("	Expected: %i\n", expected);
 		printf("	Returned: %i\n", count);
+		printf("	Char to count: %c\n", c);
+		printf("	String: %s\n", str);
 		errors++;
 	}
 	return (errors);
@@ -856,4 +858,39 @@ void	test_strcntchr(void)
 		printf("ft_strcntchr: OK!\n");
 	else
 		printf("Found %i errors in ft_strcntchr\n", errors);
+}
+
+int	check_charinset(int c, char *charset, int expected)
+{
+	int	errors;
+	int	count;
+
+	errors = 0;
+	count = ft_charinset(c, charset);
+	if (count != expected)
+	{
+		printf("ft_charinset: Error! Check failed!\n");
+		printf("	Expected result: %i\n", expected);
+		printf("	Returned result: %i\n", count);
+		printf("	Char to check: %c\n", c);
+		printf("	Charset: %s\n", charset);
+		errors++;
+	}
+	return (errors);
+}
+
+void	test_charinset(void)
+{
+	int	errors;
+
+	errors = 0;
+	errors += check_charinset('a', "abcd", 1);
+	errors += check_charinset('e', "abcd", 0);
+	errors += check_charinset('b', "abcd", 1);
+	errors += check_charinset('#', "# -+0.", 1);
+	errors += check_charinset(' ', "# -+0.", 1);
+	if (!errors)
+		printf("ft_charinset: OK!\n");
+	else
+		printf("Found %i errors in ft_charinset\n", errors);
 }

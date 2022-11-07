@@ -30,6 +30,7 @@ void	test_strmapi(void);
 void	test_striteri(void);
 void	all_list_tests(void);
 void	test_strcntchr(void);
+void	test_charinset(void);
 
 void	test_is(int (*lib)(int), int (*ft)(int), char *ft_name)
 {
@@ -95,5 +96,6 @@ int	main(void)
 	all_list_tests();
 	printf("Testing extra functions:\n");
 	test_strcntchr();
+	test_charinset();
 	return (0);
 }
