@@ -33,6 +33,7 @@ cp "${PATH_LIBFT}"/libft.h libft.h >> compile_history
 if [ -e libft.a ]
 	then
 		printf "${GREEN}libft imported with success\n${DEFAULT}"
+		make -C "${PATH_LIBFT}" fclean >> compile_history
 	else
 		printf "${RED}Error on libft importing\n${DEFAULT}"
 		printf "${YELLOW}Check compile_history for details\n${DEFAULT}"
@@ -58,3 +59,23 @@ do
 		fi
 	done
 done
+printf "${CYAN}Testing Extra functions\n${DEFAULT}"
+for func in ${Extra_func[*]}
+do
+	for obj in ${FUNC_OBJS[*]}
+	do
+		if [ "${func}.o" == "${obj}" ]
+			then
+				source "${func}"/run_test.sh
+				if [ -e run_test_${func} ]
+					then
+						rm run_test_${func}
+				fi
+				if [ -e main_${func}.c ]
+					then
+						rm main_${func}.c
+				fi
+		fi
+	done
+done
+fclean
