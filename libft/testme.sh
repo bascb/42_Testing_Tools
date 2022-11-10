@@ -1,14 +1,16 @@
 #! /usr/bin/bash
 
 # Change path to libft
-PATH_LIBFT=~/Desenvolvimento/42/projects/Libft
+PATH_LIBFT=~/projects/Libft
 
 # Define colors to use
 DEFAULT="\033[0m"
 BLACK="\033[30m"
 RED="\033[31m"
 GREEN="\033[32m"
+BLUE="\033[34m"
 YELLOW="\033[33m"
+CYAN="\033[36m"
 
 # Other sources
 source functions.sh
@@ -36,5 +38,23 @@ if [ -e libft.a ]
 		printf "${YELLOW}Check compile_history for details\n${DEFAULT}"
 		exit
 fi
-VAR_CALLOC=$(ar t libft.a ft_calloc.o)
-printf "${VAR_CALLOC}\n"
+FUNC_OBJS=$(ar t libft.a)
+printf "${CYAN}Testing Part 2 functions\n${DEFAULT}"
+for func in ${Part2_func[*]}
+do
+	for obj in ${FUNC_OBJS[*]}
+	do
+		if [ "${func}.o" == "${obj}" ]
+			then
+				source "${func}"/run_test.sh
+				if [ -e run_test_${func} ]
+					then
+						rm run_test_${func}
+				fi
+				if [ -e main_${func}.c ]
+					then
+						rm main_${func}.c
+				fi
+		fi
+	done
+done
