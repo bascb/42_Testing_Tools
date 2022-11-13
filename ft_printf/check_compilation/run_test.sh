@@ -21,6 +21,10 @@ do
 		else
 			printf "${GREEN} OK ${DEFAULT}|"
 	fi
+	if [ -e "${check}"/test"${i}".expected ]
+		then
+			rm "${check}"/test"${i}".expected
+	fi
 	if [ -e "${check}"/test"${i}".output ]
 		then
 			rm "${check}"/test"${i}".output
@@ -29,9 +33,9 @@ do
 		then
 			rm run_test_printf
 	fi
-	if [ -e run_test_printf ]
+	if [ -e run_test_ft_printf ]
 		then
-			rm run_test_printf_ft
+			rm run_test_ft_printf
 	fi
 	if [ -e main_${i}.c ]
 		then

@@ -28,6 +28,10 @@ do
 		else
 			printf "${GREEN} OK ${DEFAULT}|"
 	fi
+	if [ -e "${check}"/test"${i}".expected ]
+		then
+			rm "${check}"/test"${i}".expected
+	fi
 	if [ -e "${check}"/test"${i}".output ]
 		then
 			rm "${check}"/test"${i}".output
