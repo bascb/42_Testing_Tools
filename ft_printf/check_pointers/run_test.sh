@@ -6,20 +6,16 @@ DEPS="libftprintf.a"
 
 printf "${check}:"
 cp "${check}"/main.c main_"${check}".c
-cp "${check}"/main_ft.c main_"${check}"_ft.c
 COMP=$(${CC} ${CFLAGS} -o run_test_${check} main_${check}.c ${DEPS} 2>&1)
-COMP_FT=$(${CC} ${CFLAGS} -o run_test_${check}_ft main_${check}_ft.c ${DEPS} 2>&1)
-if [ "${COMP}" != "" ] || [ "${COMP_FT}" != "" ]
+if [ "${COMP}" != "" ]
 	then
 		echo "${COMP}" >> compile_history
-		echo "${COMP_FT}" >> compile_history
 		printf "${RED} Error during test compilation\n${DEFAULT}"
 		return
 fi
 for i in {1..3}
 do
-	./run_test_${check} ${i} > "${check}"/test"${i}".expected
-	./run_test_${check}_ft ${i} > "${check}"/test"${i}".output
+	./run_test_${check} ${i}
 	DIFF=$(diff -U 3 "${check}"/test"${i}".output "${check}"/test"${i}".expected)
 	if [ "$DIFF" != "" ]
 		then
@@ -41,16 +37,8 @@ if [ -e run_test_${check} ]
 	then
 		rm run_test_${check}
 fi
-if [ -e run_test_${check}_ft ]
-	then
-		rm run_test_${check}_ft
-fi
 if [ -e main_${check}.c ]
 	then
 		rm main_${check}.c
-fi
-if [ -e main_${check}_ft.c ]
-	then
-		rm main_${check}_ft.c
 fi
 printf "\n"

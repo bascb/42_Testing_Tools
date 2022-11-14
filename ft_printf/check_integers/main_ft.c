@@ -9,10 +9,10 @@ int	main(int argc, char **argv)
 		return (0);
 	test = atoi(argv[1]);
 	if (test == 1)
-		printf("abcdefghijklmnopqrstuvwxyz");
+		ft_printf("Numbers: %i%d%i%d%i", 1, 2, 3, 4, 5);
 	if (test == 2)
-		printf("abcdefghijklmnokkpqrstuvwxyz");
+		ft_printf("%c%i%d%%", 'a', 34, 38);
 	if (test == 3)
-		printf("abcdefghijklmnok\n\tpqrstuvwxyz");
+		ft_printf("Joining>%c%c%s%s%i%d%%", 'a', 'b', "in my", "life!", 120, -321);
 	return (0);
 }

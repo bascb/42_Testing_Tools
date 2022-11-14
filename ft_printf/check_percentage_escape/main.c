@@ -9,10 +9,10 @@ int	main(int argc, char **argv)
 		return (0);
 	test = atoi(argv[1]);
 	if (test == 1)
-		printf("abcdefghijklmnopqrstuvwxyz");
+		printf("abcdefghij%%mnopqrstuvwxyz");
 	if (test == 2)
-		printf("abcdefghijklmnokkpqrstuvwxyz");
+		printf("abcdefghijklmnokkpqrstuvw%%xyz");
 	if (test == 3)
-		printf("abcdefghijklmnok\n\tpqrstuvwxyz");
+		printf("abcdefghijklmnok%%%%pqrstuvwxyz");
 	return (0);
 }

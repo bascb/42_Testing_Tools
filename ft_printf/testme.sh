@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # Change path to libftprintf
-PATH_LIBFTPRINTF=~/Desenvolvimento/42/projects/ft_printf
+PATH_LIBFTPRINTF=~/projects/ft_printf
 
 # Define colors to use
 DEFAULT="\033[0m"
@@ -13,7 +13,8 @@ YELLOW="\033[33m"
 CYAN="\033[36m"
 
 # Checks to test
-checks=('check_compilation' 'check_output_order')
+checks=('check_compilation' 'check_output_order' 'check_percentage_escape' 'check_strings'\
+		'check_chars' 'check_integers' 'check_unsigned' 'check_hexa' 'check_pointers')
 
 # functions
 fclean()
