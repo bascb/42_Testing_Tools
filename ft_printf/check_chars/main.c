@@ -11,7 +11,7 @@ int	main(int argc, char **argv)
 	if (test == 1)
 		printf("Letters: %c %c %c", 'a', 'b', 'c');
 	if (test == 2)
-		printf("%c%c%c%%", 'a', 0, 'c');
+		printf("%c0%c0%c", 'a', 0, 'c');
 	if (test == 3)
 		printf("%c%c%c%%", 'a', 49, 'c');
 	if (test == 4)

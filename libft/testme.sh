@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # Change path to libft
-PATH_LIBFT=~/projects/Libft
+PATH_LIBFT=~/Desenvolvimento/42/projects/Libft
 
 # Define colors to use
 DEFAULT="\033[0m"
