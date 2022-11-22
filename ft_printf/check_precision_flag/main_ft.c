@@ -11,37 +11,42 @@ int	main(int argc, char **argv)
 	test = atoi(argv[1]);
 	if (test == 1)
 	{
-		chars = ft_printf("Int: %010i", 23);
+		chars = ft_printf("Int: %.10i %+5.10i % 5.10i", 23, 55, 75);
 		ft_printf(" %i", chars);
 	}
 	if (test == 2)
 	{
-		chars = ft_printf("Uns: %010u", 23);
+		chars = ft_printf("Uns: %.10u %30.10u %-20.10u", 23, 130, 55);
 		ft_printf(" %i", chars);
 	}
 	if (test == 3)
 	{
-		chars = ft_printf("Hex: %010x", 23);
+		chars = ft_printf("Hex: %.10x %-10.X", 23, 420);
 		ft_printf(" %i", chars);
 	}
 	if (test == 4)
 	{
-		chars = ft_printf("Hex: %010x", -23);
+		chars = ft_printf("Hex: %.10x %55.10x", -23, 0);
 		ft_printf(" %i", chars);
 	}
 	if (test == 5)
 	{
-		chars = ft_printf("Int: %010i", -23);
+		chars = ft_printf("Int: %-100.10i", -23);
 		ft_printf(" %i", chars);
 	}
 	if (test == 6)
 	{
-		chars = ft_printf("Int: %03i", 23);
+		chars = ft_printf("Int: %.10i %+.10i", 0, 0);
 		ft_printf(" %i", chars);
 	}
 	if (test == 7)
 	{
-		chars = ft_printf("Int: %010i %+010i", 0, 0);
+		chars = ft_printf("Int: %.10s %20.10s", "ab", "cd");
+		ft_printf(" %i", chars);
+	}
+	if (test == 8)
+	{
+		chars = ft_printf("Int: % 35.10i %+55.10i", 0, 0);
 		ft_printf(" %i", chars);
 	}
 	return (0);

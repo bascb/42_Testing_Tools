@@ -16,17 +16,18 @@ if [ "${COMP}" != "" ] || [ "${COMP_FT}" != "" ]
 		printf "${RED} Error during test compilation\n${DEFAULT}"
 		return
 fi
-for i in {1..7}
+for i in {1..8}
 do
 	./run_test_${check} ${i} > "${check}"/test"${i}".expected
 	./run_test_${check}_ft ${i} > "${check}"/test"${i}".output
 	DIFF=$(diff -U 3 "${check}"/test"${i}".output "${check}"/test"${i}".expected)
+	printf "${DEFAULT}${i}"
 	if [ "$DIFF" != "" ]
 		then
 			echo "${DIFF}" | cat -e >> compile_history
-			printf "${RED} KO ${DEFAULT}|"
+			printf "${RED} KO ${DEFAULT}| "
 		else
-			printf "${GREEN} OK ${DEFAULT}|"
+			printf "${GREEN} OK ${DEFAULT}| "
 	fi
 	if [ -e "${check}"/test"${i}".expected ]
 		then

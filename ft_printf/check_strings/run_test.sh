@@ -7,8 +7,8 @@ DEPS="libftprintf.a"
 printf "${check}:"
 cp "${check}"/main.c main_"${check}".c
 cp "${check}"/main_ft.c main_"${check}"_ft.c
-COMP=$(${CC} ${CFLAGS} -o run_test_${check} main_${check}.c ${DEPS} 2>&1)
-COMP_FT=$(${CC} ${CFLAGS} -o run_test_${check}_ft main_${check}_ft.c ${DEPS} 2>&1)
+COMP=$(${CC} -o run_test_${check} main_${check}.c ${DEPS} 2>&1)
+COMP_FT=$(${CC} -o run_test_${check}_ft main_${check}_ft.c ${DEPS} 2>&1)
 if [ "${COMP}" != "" ] || [ "${COMP_FT}" != "" ]
 	then
 		echo "${COMP}" >> compile_history
