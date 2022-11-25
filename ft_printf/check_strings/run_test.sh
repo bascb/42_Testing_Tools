@@ -7,8 +7,8 @@ DEPS="libftprintf.a"
 printf "${check}:"
 cp "${check}"/main.c main_"${check}".c
 cp "${check}"/main_ft.c main_"${check}"_ft.c
-COMP=$(${CC} -o run_test_${check} main_${check}.c ${DEPS} 2>&1)
-COMP_FT=$(${CC} -o run_test_${check}_ft main_${check}_ft.c ${DEPS} 2>&1)
+COMP=$(${CC} ${CFLAGS} -Wno-format -o run_test_${check} main_${check}.c ${DEPS} 2>&1)
+COMP_FT=$(${CC} ${CFLAGS} -Wno-format -o run_test_${check}_ft main_${check}_ft.c ${DEPS} 2>&1)
 if [ "${COMP}" != "" ] || [ "${COMP_FT}" != "" ]
 	then
 		echo "${COMP}" >> compile_history
@@ -16,7 +16,7 @@ if [ "${COMP}" != "" ] || [ "${COMP_FT}" != "" ]
 		printf "${RED} Error during test compilation\n${DEFAULT}"
 		return
 fi
-for i in {1..3}
+for i in {1..4}
 do
 	./run_test_${check} ${i} > "${check}"/test"${i}".expected
 	./run_test_${check}_ft ${i} > "${check}"/test"${i}".output

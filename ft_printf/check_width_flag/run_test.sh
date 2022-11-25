@@ -4,6 +4,8 @@ CC=gcc
 CFLAGS="-Wall -Werror -Wextra"
 DEPS="libftprintf.a"
 
+conversions=('i/d' 'u' 'x/X' 's')
+
 printf "${check}:"
 cp "${check}"/main.c main_"${check}".c
 cp "${check}"/main_ft.c main_"${check}"_ft.c

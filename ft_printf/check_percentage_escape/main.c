@@ -14,5 +14,11 @@ int	main(int argc, char **argv)
 		printf("abcdefghijklmnokkpqrstuvw%%xyz");
 	if (test == 3)
 		printf("abcdefghijklmnok%%%%pqrstuvwxyz");
+	if (test == 4)
+		printf(" %-5% ");
+	if (test == 5)
+		printf(" %% % %%");
+	if (test == 6)
+		printf(" %-10.5% ");
 	return (0);
 }

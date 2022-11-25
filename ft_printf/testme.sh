@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # Change path to libftprintf
-PATH_LIBFTPRINTF=~/projects/ft_printf
+PATH_LIBFTPRINTF=~/Desenvolvimento/42/projects/ft_printf
 
 # Define colors to use
 DEFAULT="\033[0m"

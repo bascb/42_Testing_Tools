@@ -14,5 +14,7 @@ int	main(int argc, char **argv)
 		ft_printf("Two simple equations: %s %s", "ABC", "DEF");
 	if (test == 3)
 		ft_printf("Joining>%s%s%s%s", "A", " day", "in my", "life!");
+	if (test == 4)
+		ft_printf(" NULL %s NULL ", NULL);
 	return (0);
 }

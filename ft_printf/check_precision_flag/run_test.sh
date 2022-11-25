@@ -4,6 +4,8 @@ CC=gcc
 CFLAGS="-Wall -Werror -Wextra"
 DEPS="libftprintf.a"
 
+conversions=('i/d' 'u' 'x/X' 's')
+
 printf "${check}:"
 cp "${check}"/main.c main_"${check}".c
 cp "${check}"/main_ft.c main_"${check}"_ft.c
@@ -16,12 +18,12 @@ if [ "${COMP}" != "" ] || [ "${COMP_FT}" != "" ]
 		printf "${RED} Error during test compilation\n${DEFAULT}"
 		return
 fi
-for i in {1..8}
+for i in {1..4}
 do
 	./run_test_${check} ${i} > "${check}"/test"${i}".expected
 	./run_test_${check}_ft ${i} > "${check}"/test"${i}".output
 	DIFF=$(diff -U 3 "${check}"/test"${i}".output "${check}"/test"${i}".expected)
-	printf "${DEFAULT}${i}"
+	printf "${DEFAULT}${conversions[${i}-1]}"
 	if [ "$DIFF" != "" ]
 		then
 			echo "${DIFF}" | cat -e >> compile_history
