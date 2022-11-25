@@ -34,5 +34,16 @@ int	main(int argc, char **argv)
 		chars = printf("String: %-10s", "ases");
 		printf(" %i", chars);
 	}
+	if (test == 6)
+	{
+		chars = printf(" %-1c %-2c %-3c ", '0', 0, '1');
+		printf(" %i", chars);
+	}
+	if (test == 7)
+	{
+		chars = printf(" %-11p %-12p\n", INT_MIN, INT_MAX);
+		chars += printf(" %-13p %-14p ", ULONG_MAX, -ULONG_MAX);
+		printf(" %i", chars);
+	}
 	return (0);
 }

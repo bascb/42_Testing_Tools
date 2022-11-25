@@ -4,7 +4,7 @@ CC=gcc
 CFLAGS="-Wall -Werror -Wextra"
 DEPS="libftprintf.a"
 
-conversions=('i/d' 'u' 'x/X' 's')
+conversions=('i/d' 'u' 'x/X' 's1' 's2')
 
 printf "${check}:"
 cp "${check}"/main.c main_"${check}".c
@@ -18,7 +18,7 @@ if [ "${COMP}" != "" ] || [ "${COMP_FT}" != "" ]
 		printf "${RED} Error during test compilation\n${DEFAULT}"
 		return
 fi
-for i in {1..4}
+for i in {1..5}
 do
 	./run_test_${check} ${i} > "${check}"/test"${i}".expected
 	./run_test_${check}_ft ${i} > "${check}"/test"${i}".output

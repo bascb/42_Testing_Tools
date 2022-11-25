@@ -28,9 +28,15 @@ int	main(int argc, char **argv)
 	}
 	if (test == 4)
 	{
-		chars = ft_printf("s: %100.10s %.20s", "ab", "cd");
-		chars += ft_printf("%.s %.1s %.s %.s %.1s %.s %10.s  %.1s", "", "", "", "-", "2", "3", "more", "-");
-		chars += ft_printf("%.3s %.2s ", " - ", "");
+		chars = ft_printf("s: %100.10s %.20s\n", "ab", "cd");
+		chars += ft_printf("%.s %.1s %.s %.s %.1s %.s %10.s  %.1s\n", "", "", "", "-", "2", "3", "more", "-");
+		ft_printf(" %i", chars);
+	}
+	if (test == 5)
+	{
+		chars = ft_printf("1 %.3s %.2s\n", " - ", "");
+		chars += ft_printf("2 %.1s %.2s %.3s %.4s\n", " - ", "", "4", "");
+		chars += ft_printf("3 %.2s %.3s %.4s %.5s %.1s\n", " - ", "", "4", "", "2 ");
 		ft_printf(" %i", chars);
 	}
 	return (0);

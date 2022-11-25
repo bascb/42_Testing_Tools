@@ -28,9 +28,15 @@ int	main(int argc, char **argv)
 	}
 	if (test == 4)
 	{
-		chars = printf("s: %100.10s %.20s", "ab", "cd");
-		chars += printf("%.s %.1s %.s %.s %.1s %.s %10.s  %.1s", "", "", "", "-", "2", "3", "more", "-");
-		chars += printf("%.3s %.2s ", " - ", "");
+		chars = printf("s: %100.10s %.20s\n", "ab", "cd");
+		chars += printf("%.s %.1s %.s %.s %.1s %.s %10.s  %.1s\n", "", "", "", "-", "2", "3", "more", "-");
+		printf(" %i", chars);
+	}
+	if (test == 5)
+	{
+		chars = printf("1 %.3s %.2s\n", " - ", "");
+		chars += printf("2 %.1s %.2s %.3s %.4s\n", " - ", "", "4", "");
+		chars += printf("3 %.2s %.3s %.4s %.5s %.1s\n", " - ", "", "4", "", "2 ");
 		printf(" %i", chars);
 	}
 	return (0);

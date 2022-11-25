@@ -34,5 +34,16 @@ int	main(int argc, char **argv)
 		chars = ft_printf("String: %-10s", "ases");
 		ft_printf(" %i", chars);
 	}
+	if (test == 6)
+	{
+		chars = ft_printf(" %-1c %-2c %-3c ", '0', 0, '1');
+		ft_printf(" %i", chars);
+	}
+	if (test == 7)
+	{
+		chars = ft_printf(" %-11p %-12p\n", INT_MIN, INT_MAX);
+		chars += ft_printf(" %-13p %-14p ", ULONG_MAX, -ULONG_MAX);
+		ft_printf(" %i", chars);
+	}
 	return (0);
 }
