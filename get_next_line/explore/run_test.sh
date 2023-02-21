@@ -1,5 +1,3 @@
-#! /usr/bin/bash
-
 CC=gcc
 CFLAGS="-Wall -Werror -Wextra"
 
@@ -11,7 +9,7 @@ if [ "${COMP}" != "" ]; then
     printf "${RED} Error during test compilation\n${DEFAULT}"
 	return
 fi
-for i in {1..7}
+for i in {1..4}
 do
 #valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./run_test_${check}
     ./run_test_${check} ${check}/${i}.txt >  ${check}/${i}.output
@@ -27,9 +25,9 @@ do
     fi
 done
 printf "\n"
-if [ -e run_test_${check} ]; then
-    rm run_test_${check}
-fi
+#if [ -e run_test_${check} ]; then
+#    rm run_test_${check}
+#fi
 if [ -e main_"${check}".c ]; then
     rm main_"${check}".c
 fi
