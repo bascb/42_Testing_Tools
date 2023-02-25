@@ -12,7 +12,15 @@ int	main(int argc, char **argv)
 	if (test == 1)
 	{
 		chars = ft_printf("Int: %.10i %+5.10i % 5.10i %-100.10i %.10i %+.10i % 35.10i %+55.10i\n", 23, 55, 75, -23, 0, 0, 0, 0);
-		chars += ft_printf("%.1d %.3d %.8d %.9d", 0, -99, INT_MAX, INT_MIN);
+		chars += ft_printf("1 %.1d %.3d %.8d %.9d\n", 0, -99, INT_MAX, INT_MIN);
+		chars += ft_printf("2 %08.5i\n", 34);
+		chars += ft_printf("3 %.0i\n", 0);
+		chars += ft_printf("4 %.i\n", 0);
+		chars += ft_printf("5 %5.0i\n", 0);
+		chars += ft_printf("6 %5.i\n", 0);
+		chars += ft_printf("7 %5.4i\n", 0);
+		chars += ft_printf("8 %013.i\n", -1488496170);
+		chars += ft_printf("9 %.i\n", -1488496170);
 		ft_printf(" %i", chars);
 	}
 	if (test == 2)
@@ -37,6 +45,20 @@ int	main(int argc, char **argv)
 		chars = ft_printf("1 %.3s %.2s\n", " - ", "");
 		chars += ft_printf("2 %.1s %.2s %.3s %.4s\n", " - ", "", "4", "");
 		chars += ft_printf("3 %.2s %.3s %.4s %.5s %.1s\n", " - ", "", "4", "", "2 ");
+		chars += ft_printf("4 %.2s\n", NULL);
+		chars += ft_printf("5 %.s\n", NULL);
+		chars += ft_printf("6 %20.s\n", NULL);
+		chars += ft_printf("7 %.2s\n", "NULL");
+		chars += ft_printf("8 %.09s\n", NULL);
+		chars += ft_printf("9 %3.6s\n", NULL);
+		chars += ft_printf("10 %20.6s\n", NULL);
+		chars += ft_printf("11 %-3.8s\n", NULL);
+		chars += ft_printf("12 %-10.8s\n", NULL);
+		ft_printf(" %i", chars);
+	}
+	if (test == 6)
+	{
+		chars = ft_printf("p: %.20p %40.20p", INT_MAX, INT_MAX);
 		ft_printf(" %i", chars);
 	}
 	return (0);

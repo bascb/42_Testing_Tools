@@ -44,5 +44,20 @@ int	main(int argc, char **argv)
 		chars = ft_printf("Int: %+10i %1i", 0, 0);
 		ft_printf(" %i", chars);
 	}
+	if (test == 8)
+	{
+		chars = ft_printf("%197c %-1c", 7, 120);
+		ft_printf(" %i", chars);
+	}
+	if (test == 9)
+	{
+		chars = ft_printf("%12p", (void*)18229185041105221837lu);
+		ft_printf(" %i", chars);
+	}
+	if (test == 10)
+	{
+		chars = ft_printf("8 %013i\n", -1488496170);
+		ft_printf(" %i", chars);
+	}
 	return (0);
 }

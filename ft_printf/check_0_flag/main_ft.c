@@ -11,7 +11,7 @@ int	main(int argc, char **argv)
 	test = atoi(argv[1]);
 	if (test == 1)
 	{
-		chars = ft_printf("Int: %010i", 23);
+		chars = ft_printf("Int: %010i %08i %08i", 23, 34, -34);
 		ft_printf(" %i", chars);
 	}
 	if (test == 2)
@@ -42,6 +42,11 @@ int	main(int argc, char **argv)
 	if (test == 7)
 	{
 		chars = ft_printf("Int: %010i %+010i", 0, 0);
+		ft_printf(" %i", chars);
+	}
+	if (test == 8)
+	{
+		chars = ft_printf("P: %010p", INT_MAX);
 		ft_printf(" %i", chars);
 	}
 	return (0);

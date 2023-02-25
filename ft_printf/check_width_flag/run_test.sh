@@ -18,7 +18,7 @@ if [ "${COMP}" != "" ] || [ "${COMP_FT}" != "" ]
 		printf "${RED} Error during test compilation\n${DEFAULT}"
 		return
 fi
-for i in {1..7}
+for i in {1..10}
 do
 	./run_test_${check} ${i} > "${check}"/test"${i}".expected
 	./run_test_${check}_ft ${i} > "${check}"/test"${i}".output

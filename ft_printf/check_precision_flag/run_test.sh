@@ -4,13 +4,13 @@ CC=gcc
 CFLAGS="-Wall -Werror -Wextra"
 DEPS="libftprintf.a"
 
-conversions=('i/d' 'u' 'x/X' 's1' 's2')
+conversions=('i/d' 'u' 'x/X' 's1' 's2' 'p')
 
 printf "${check}:"
 cp "${check}"/main.c main_"${check}".c
 cp "${check}"/main_ft.c main_"${check}"_ft.c
-COMP=$(${CC} ${CFLAGS} -o run_test_${check} main_${check}.c ${DEPS} 2>&1)
-COMP_FT=$(${CC} ${CFLAGS} -o run_test_${check}_ft main_${check}_ft.c ${DEPS} 2>&1)
+COMP=$(${CC} ${CFLAGS} -Wno-format -o run_test_${check} main_${check}.c ${DEPS} 2>&1)
+COMP_FT=$(${CC} ${CFLAGS} -Wno-format -o run_test_${check}_ft main_${check}_ft.c ${DEPS} 2>&1)
 if [ "${COMP}" != "" ] || [ "${COMP_FT}" != "" ]
 	then
 		echo "${COMP}" >> compile_history
@@ -18,7 +18,7 @@ if [ "${COMP}" != "" ] || [ "${COMP_FT}" != "" ]
 		printf "${RED} Error during test compilation\n${DEFAULT}"
 		return
 fi
-for i in {1..5}
+for i in {1..6}
 do
 	./run_test_${check} ${i} > "${check}"/test"${i}".expected
 	./run_test_${check}_ft ${i} > "${check}"/test"${i}".output

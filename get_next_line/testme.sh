@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # Change path to source code
-SOURCE_PATH=~/Desenvolvimento/42/projects/get_next_line
+SOURCE_PATH=~/projects/get_next_line
 
 # Define colors to use
 DEFAULT="\033[0m"

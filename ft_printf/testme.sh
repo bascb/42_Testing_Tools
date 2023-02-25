@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # Change path to libftprintf
-PATH_LIBFTPRINTF=~/projects/ft_printf
+PATH_LIBFTPRINTF=~/projects/test/ft_printf
 
 # Define colors to use
 DEFAULT="\033[0m"
@@ -30,7 +30,7 @@ fclean()
 }
 
 
-printf "${YELLOW}Compiling and importing libftprintf library...\n${DEFAULT}"
+printf "${YELLOW}Compiling and importing libftprintf library from ${PATH_LIBFTPRINTF}...\n${DEFAULT}"
 fclean > compile_history
 make -C "${PATH_LIBFTPRINTF}" re >> compile_history
 cp "${PATH_LIBFTPRINTF}"/libft.h libft.h >> compile_history
