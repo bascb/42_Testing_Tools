@@ -13,7 +13,8 @@ YELLOW="\033[33m"
 CYAN="\033[36m"
 
 # Checks to test
-checks=('check_compilation' 'some_text_files' 'change_buffer_size' 'stdin')
+checks=('check_compilation' 'some_text_files' 'change_buffer_size' 'stdin' 'explore' 'read_size_!=_buffer_size')
+#checks=('explore')
 bonus=('several_files')
 
 # functions
