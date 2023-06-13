@@ -26,7 +26,7 @@ fclean()
 	rm -f libft.a
 	rm -f libft.h
 	rm -f libftprintf.a
-	rm -f libftprintf.h
+	rm -f ft_printf.h
 }
 
 
@@ -35,7 +35,7 @@ fclean > compile_history
 make -C "${PATH_LIBFTPRINTF}" re >> compile_history
 cp "${PATH_LIBFTPRINTF}"/libft.h libft.h >> compile_history
 cp "${PATH_LIBFTPRINTF}"/libftprintf.a libftprintf.a >> compile_history
-cp "${PATH_LIBFTPRINTF}"/libftprintf.h libftprintf.h >> compile_history
+cp "${PATH_LIBFTPRINTF}"/ft_printf.h ft_printf.h >> compile_history
 if [ -e libftprintf.a ]
 	then
 		printf "${GREEN}libftprintf imported with success\n${DEFAULT}"
