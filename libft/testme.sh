@@ -79,3 +79,8 @@ do
 	done
 done
 fclean
+
+# Define colors to use
+DEFAULT="\033[0m"
+BLACK="\033[30m"
+RED="\033[31m"
