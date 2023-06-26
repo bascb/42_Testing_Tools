@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # Change path to pipex
-PATH_PIPEX=~/Desenvolvimento/42/projects/pipex
+PATH_PIPEX=~/projects/pipex
 
 # Define colors to use
 DEFAULT="\033[0m"
@@ -13,7 +13,7 @@ YELLOW="\033[33m"
 CYAN="\033[36m"
 
 # Checks to test
-checks=('check_infile' 'check_ls_wc')
+checks=('check_infile' 'check_ls_wc' 'check_wrong_command')
 
 # functions
 fclean()
