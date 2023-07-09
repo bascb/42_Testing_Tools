@@ -33,7 +33,7 @@ cp -r $PATH_FDF fdf_src
 # Compile pipex
 printf "${CYAN}Checking Norm and compilation:\n${DEFAULT}"
 printf "Norminette check:"
-NORM=$(norminette fdf_src/\*.c fdf_src/libft)
+NORM=$(norminette fdf_src/\*.c fdf_src/\*.h fdf_src/libft)
 echo "$NORM" > norminette.log
 NORM_ERR=$(grep Error norminette.log)
 if [ "$NORM_ERR" != "" ]; then
