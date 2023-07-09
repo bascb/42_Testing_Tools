@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # Change path to fdf
-PATH_FDF=~/projects/fdf
+PATH_FDF=~/Desenvolvimento/42/projects/fdf
 
 # Define colors to use
 DEFAULT="\033[0m"
