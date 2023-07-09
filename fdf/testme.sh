@@ -60,4 +60,4 @@ for check in ${checks[*]}
 do
 	source "${check}"/run_test.sh
 done
-fclean
+#fclean
