@@ -2,4 +2,4 @@
 
 printf "${check}:"
 
-./fdf
+./fdf "New adventure"

@@ -13,6 +13,7 @@ YELLOW="\033[33m"
 CYAN="\033[36m"
 
 # https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html
+# https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
 # Checks to test
 checks=('check_minilibx')
 
