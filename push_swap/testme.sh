@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # Change path to pipex
-PATH_PUSH=~/Desenvolvimento/42/projects/push_swap
+PATH_PUSH=~/projects/push_swap
 
 # Define colors to use
 DEFAULT="\033[0m"
