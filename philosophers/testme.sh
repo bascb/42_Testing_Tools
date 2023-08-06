@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # Change path to pipex
-PATH_PUSH=~/Desenvolvimento/42/projects/push_swap
+PATH_SRC=~/Desenvolvimento/42/projects/philosophers
 
 # Define colors to use
 DEFAULT="\033[0m"
@@ -18,22 +18,21 @@ checks=('check_infile' 'check_ls_wc' 'check_wrong_command')
 # functions
 fclean()
 {
-	rm -f push_swap
-	rm -f checker
+	rm -f philo
 }
 
 # Removes folder wwith old tests
-if [ -e push_src ]; then
-    rm -rf push_src
+if [ -e philo_src ]; then
+    rm -rf philo_src
 fi
 
 # Copy source folder
-cp -r $PATH_PUSH push_src
+cp -r $PATH_SRC philo_src
 
 # Compile pipex
 printf "${CYAN}Checking Norm and compilation:\n${DEFAULT}"
 printf "Norminette check:"
-NORM=$(norminette push_src)
+NORM=$(norminette philo_src)
 echo "$NORM" > norminette.log
 NORM_ERR=$(grep Error norminette.log)
 if [ "$NORM_ERR" != "" ]; then
@@ -41,26 +40,16 @@ if [ "$NORM_ERR" != "" ]; then
 else
     printf "${GREEN} OK ${DEFAULT}|\n"
 fi
-printf "push_swap compilation:"
-COMP=$(make -C push_src re 2>&1)
+printf "philo compilation:"
+COMP=$(make -C philo_src/philo re 2>&1)
 echo "$COMP" > compile.log
-if [ ! -e  push_src/push_swap ]; then
+if [ ! -e  philo_src/philo/philo ]; then
     printf "${RED} KO ${DEFAULT}|\n"
     exit
 else
     printf "${GREEN} OK ${DEFAULT}|\n"
     fclean
-    cp push_src/push_swap .
-fi
-printf "checker compilation:"
-COMP=$(make -C push_src bonus 2>&1)
-echo "$COMP" > compile.log
-if [ ! -e  push_src/checker ]; then
-    printf "${RED} KO ${DEFAULT}|\n"
-    exit
-else
-    printf "${GREEN} OK ${DEFAULT}|\n"
-    cp push_src/checker .
+    cp philo_src/philo/philo .
 fi
 
 #printf "" > test.log
